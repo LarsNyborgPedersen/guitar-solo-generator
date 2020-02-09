@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guitarsologenerator/utilities/GuitarSoloGenerator.dart';
 import 'package:guitarsologenerator/utilities/MP3Player.dart';
 
 void main() => runApp(MyApp());
@@ -26,6 +27,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  MP3Player mp3player;
+  GuitarSoloGenerator guitarSoloGenerator;
+
+  @override
+  void dispose() {
+    stopAudio();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 playAudio();
               },
+            ),
+            OutlineButton(
+              onPressed: () {
+                stopAudio();
+              },
             )
           ],
         ),
@@ -49,8 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void playAudio() {
-    String audioFile = "assets/audio/backing-track/backing-track.mp3";
-    MP3Player mp3player = new MP3Player(audioFile: audioFile);
-    mp3player.playPause();
+    guitarSoloGenerator = new GuitarSoloGenerator();
+    guitarSoloGenerator.play();
+  }
+
+  void stopAudio() {
+    guitarSoloGenerator.stop();
   }
 }
