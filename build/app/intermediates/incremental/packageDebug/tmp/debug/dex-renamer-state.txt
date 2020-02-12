@@ -1,4 +1,4 @@
-#Sun Feb 09 21:40:32 CET 2020
+#Wed Feb 12 21:24:53 CET 2020
 base.0=C\:\\Users\\lars\\OneDrive - Aalborg Universitet\\Programmering\\Flutter projekter\\guitar-solo-generator\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

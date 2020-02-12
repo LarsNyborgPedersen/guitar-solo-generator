@@ -4,19 +4,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MP3Player {
-  String audioFile;
   AudioPlayer audioPlayers;
   bool playing = false;
+  String audioFile;
 
-  MP3Player({@required this.audioFile});
+  MP3Player();
 
-  Future<void> _initializeMP3() async {
-    audioPlayers = await AudioCache().loop(audioFile);
+  Future<void> initializeMP3(String audioFile) async {
+//    audioPlayers = await AudioCache().loop(audioFile);
+    audioPlayers = await AudioCache().play(audioFile);
+    this.audioFile = audioFile;
   }
 
   Future<void> playPause() async {
     if (audioPlayers == null) {
-      await _initializeMP3();
+      await initializeMP3(audioFile);
       playing = true;
       audioPlayers.setReleaseMode(ReleaseMode.RELEASE);
     } else if (playing == true) {

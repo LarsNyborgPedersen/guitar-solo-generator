@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void playAudio() {
     guitarSoloGenerator = new GuitarSoloGenerator();
-    guitarSoloGenerator.play();
+    guitarSoloGenerator.play2();
   }
 
   void stopAudio() {
